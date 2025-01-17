@@ -8,21 +8,25 @@ import controllers.models.NodeG;
 public class Graph {
     private List<NodeG> nodes;  
 
+    //Constructor
     public Graph() {
         this.nodes = new ArrayList<>();  
     }
-
+    
+    //Metodo para añidir un nodo
     public NodeG addNode(int value) {
-        NodeG newNode = new NodeG(value);
-        nodes.add(newNode);  
-        return newNode;  
+        NodeG nodeGraph = new NodeG(value);
+        nodes.add(nodeGraph);  
+        return nodeGraph;  
     }
 
+    //Metodo para añidir una arista
     public void addEdge(NodeG src, NodeG dest) {
         src.addNeighbor(dest); 
         dest.addNeighbor(src);  
     }
 
+    //Metodo para imprimir el grafo
     public void printGraph() {
         for (NodeG node : nodes) {
             System.out.print("Nodo " + node.getValue() + " tiene vecinos: ");
@@ -30,7 +34,7 @@ public class Graph {
             for (NodeG neighbor : neighbors) {
                 System.out.print(neighbor.getValue() + " ");
             }
-            System.out.println();
+            System.out.println(); 
         }
     }
 }
